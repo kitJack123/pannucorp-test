@@ -16,7 +16,7 @@ class ClientList extends React.Component {
     return (
       <List className={classes.clientListWrapper}>
         {
-          (!clients || clients.length == 0) &&
+          (!clients || clients.length === 0) &&
           (
             <Typography className={classes.nothingToShow}>
               Nothing to show here
