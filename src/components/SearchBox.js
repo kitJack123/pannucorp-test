@@ -12,8 +12,12 @@ class SearchBox extends React.Component {
     onSearch: PropTypes.func.isRequired
   };
 
+  handleSearch = event => {
+    this.props.onSearch(event.target.value);
+  };
+
   render = () => {
-    const { searchText, onSearch, classes } = this.props;
+    const { searchText, classes } = this.props;
     return (
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
@@ -29,7 +33,7 @@ class SearchBox extends React.Component {
             }}
             inputProps={{ "aria-label": "search" }}
             value={searchText}
-            onChange={onSearch}
+            onChange={this.handleSearch}
           />
         </div>
         </Toolbar>

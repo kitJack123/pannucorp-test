@@ -1,7 +1,6 @@
 import { actionTypes } from "../actions";
 
 const clients = (state = [], action) => {
-  console.log(state);
   switch (action.type) {
     case actionTypes.SELECT_CLIENT:
       return state.map(client =>

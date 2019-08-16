@@ -34,6 +34,7 @@ export const styleSheet = theme => ({
   inputRoot: {
     color: "inherit"
   },
+
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create("width"),

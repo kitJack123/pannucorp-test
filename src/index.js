@@ -5,11 +5,10 @@ import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import rootReducer from './reducers';
-import { clients } from './model/clients.json';
+import rootReducer from "./reducers";
+import { clients } from "./model/clients.json";
 
-const store = createStore(rootReducer, {clients:clients});
-console.log(store.getState());
+const store = createStore(rootReducer, { clients: clients, search: "" });
 
 ReactDOM.render(
   <Provider store={store}>

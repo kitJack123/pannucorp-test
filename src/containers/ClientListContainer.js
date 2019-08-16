@@ -1,24 +1,20 @@
 import { connect } from "react-redux";
 import ClientList from "../components/ClientList";
 import { selectClient } from "../actions";
-import { searchClient } from "../actions";
 
-// const getVisibleClients = (clients, filter) => {
-//   switch (filter) {
-//     case VisibilityFilters.SHOW_ALL:
-//       return todos;
-//     case VisibilityFilters.SHOW_COMPLETED:
-//       return todos.filter(t => t.completed);
-//     case VisibilityFilters.SHOW_ACTIVE:
-//       return todos.filter(t => !t.completed);
-//     default:
-//       throw new Error("Unknown filter: " + filter);
-//   }
-// };
+const getFilteredClients = (clients, searchText) => {
+  if (searchText === "") return clients;
+  return clients.filter(
+    client =>
+      client.name.indexOf(searchText) !== -1 ||
+      client.company.indexOf(searchText) !== -1 ||
+      client.jobTitle.indexOf(searchText) !== -1 ||
+      client.jobDescription.indexOf(searchText) !== -1
+  );
+};
 
 const mapStateToProps = state => ({
-  // todos: getVisibleClients(state.selectClient, state.visibilityFilter)
-  clients: state.clients
+  clients: getFilteredClients(state.clients, state.search)
 });
 
 const mapDispatchToProps = dispatch => ({

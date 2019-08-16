@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles } from "@material-ui/core";
+import { withStyles, Typography } from "@material-ui/core";
 import { styleSheet } from "../jss/ClientList";
 import PropTypes from "prop-types";
 import { List, ListItem } from "@material-ui/core";
@@ -15,8 +15,16 @@ class ClientList extends React.Component {
     const { clients, onSelectClient, classes } = this.props;
     return (
       <List className={classes.clientListWrapper}>
-        {clients.map(client => (
-          <ListItem className={classes.clientItemWrapper}>
+        {
+          (!clients || clients.length == 0) &&
+          (
+            <Typography className={classes.nothingToShow}>
+              Nothing to show here
+            </Typography>
+          )
+        }
+        {clients.map((client, key) => (
+          <ListItem className={classes.clientItemWrapper} key={key}>
             <ClientButton
               clientInfo={client}
               onSelectClient={() => onSelectClient(client)}

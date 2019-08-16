@@ -8,7 +8,7 @@ export const selectClient = clientInfo => ({
   selected: clientInfo
 });
 
-export const searchClient = searchInfo => ({
+export const searchClient = searchText => ({
   type: actionTypes.SEARCH_CLIENT,
-  searchInfo: searchInfo
+  searchText: searchText
 });

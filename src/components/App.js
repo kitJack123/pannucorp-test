@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core";
 import { styleSheet } from "../jss/App";
 import ClientListContainer from "../containers/ClientListContainer";
-import SearchBox from "./SearchBox";
+import SearchBoxContainer from "../containers/SearchBoxContainer";
 import ClientDetailContainer from "../containers/ClientDetailContainer";
 
 class App extends React.Component {
@@ -13,12 +13,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header" />
-        <SearchBox />
+        <SearchBoxContainer />
         <Grid container className={classes.mainPage}>
           <Grid item xs={2} className={classes.leftSidebar}>
             <ClientListContainer className={classes.clientList} />
           </Grid>
-          <Grid item xs={10} classname={classes.mainContent}>
+          <Grid item xs={10} className={classes.mainContent}>
             <ClientDetailContainer />
           </Grid>
         </Grid>
